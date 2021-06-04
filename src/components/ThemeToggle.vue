@@ -32,12 +32,17 @@ export default {
 
 <style scoped lang="scss">
 .toggleWrapper {
-  display: inline;
+  box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  width: 0;
-  padding: 0 100px;
+  width: 300px;
+  height: 100%;
+  padding-left: 100px;
   transform: translate3d(-50%, -50%, 0);
+
+  display: flex;
+  align-items: center;
+  align-self: bottom;
 
   input {
     position: absolute;

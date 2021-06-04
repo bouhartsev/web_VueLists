@@ -6,8 +6,8 @@
           <use xlink:href="#icon_logo" />
         </svg>
       </a>
-      <nav>
-        <ul class="header__nav">
+      <nav class="header__nav">
+        <ul class="header__nav-ul">
           <li><a href="#collections">Подборки</a></li>
           <li><a href="#lists">Мои списки</a></li>
         </ul>
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~@/assets/variables.scss';
+@import "~@/assets/variables.scss";
 
 html {
   scroll-behavior: smooth;
@@ -52,7 +52,7 @@ html {
 
     .header {
       width: 100%;
-	    height: 100px;
+      height: 100px;
 
       display: flex;
       position: relative;
@@ -65,22 +65,27 @@ html {
 
       .header_logo {
         width: fit-content;
+        height: 100%;
         * {
+          height: 100%;
           width: auto;
           height: 100%;
         }
       }
       .header__nav {
-        padding: 0 1em;
-        display: flex;
         width: 50%;
-        justify-content: space-around;
-
-        * {
-          list-style: none;
-          text-decoration: none;
-          display: block;
-          width: fit-content;
+        .header__nav-ul {
+          box-sizing: border-box;
+          padding: 0 1em;
+          display: flex;
+          width: 100%;
+          justify-content: space-around;
+          * {
+            list-style: none;
+            text-decoration: none;
+            display: block;
+            width: fit-content;
+          }
         }
       }
     }
@@ -93,12 +98,11 @@ html {
   body.dark_theme {
     $bg-color: black;
     $fg-color: whitesmoke;
-    $color_prime: #1D3557;
-    $color_second: #457B9D;
+    $color_prime: #1d3557;
+    $color_second: #457b9d;
 
     background: $bg-color;
   }
-  
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -106,5 +110,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   // text-align: center;
   color: #2c3e50;
+}
+
+h1, h2, h3 {
+  text-align: center !important;
 }
 </style>

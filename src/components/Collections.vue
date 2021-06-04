@@ -1,9 +1,10 @@
 <template>
   <section id="collections">
+    <h2>Подборки</h2>
     <div class="collection__card">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="collection_img">
         <use xlink:href="#icon_css" />
-     </svg>
+      </svg>
       <h3>CSS</h3>
       <ul>
         <li class="collection__item">
@@ -55,12 +56,16 @@
       </ul>
     </div>
     <div class="collection__card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="collection_img">
+        <use xlink:href="#icon_js1" />
+      </svg>
       <h3>JS Библиотеки</h3>
       <ul>
         <li class="collection__item">
           <h4 class="collection__item_heading">jQuery</h4>
           <p class="collection__item_description">
-            Набор функций для манипуляций с DOM, работы с событиями и модуль для клиент-серверного взаимодействия.
+            Набор функций для манипуляций с DOM, работы с событиями и модуль для
+            клиент-серверного взаимодействия.
           </p>
         </li>
         <li class="collection__item">
@@ -72,35 +77,41 @@
         <li class="collection__item">
           <h4 class="collection__item_heading">React</h4>
           <p class="collection__item_description">
-           Библиотека для отображения данных и управлению DOM деревом.
+            Библиотека для отображения данных и управлению DOM деревом.
           </p>
         </li>
       </ul>
     </div>
     <div class="collection__card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="collection_img">
+        <use xlink:href="#icon_js2" />
+      </svg>
       <h3>JS Фреймворки</h3>
       <ul>
         <li class="collection__item">
           <h4 class="collection__item_heading">AngularJS</h4>
           <p class="collection__item_description">
-            Фреймворк для создания SPA, включает в себя инструменты для разработки и тестирования, реализует архитектуры MVC и MVVM, имеет открытый исходный код.
+            Фреймворк для создания SPA, включает в себя инструменты для
+            разработки и тестирования, реализует архитектуры MVC и MVVM, имеет
+            открытый исходный код.
           </p>
         </li>
         <li class="collection__item">
           <h4 class="collection__item_heading">Vue.js</h4>
           <p class="collection__item_description">
-            Также фреймворк для создания SPA, реализует шаблон MVVM, имеет открытый исходный код.
+            Также фреймворк для создания SPA, реализует шаблон MVVM, имеет
+            открытый исходный код.
           </p>
         </li>
         <li class="collection__item">
           <h4 class="collection__item_heading">Ember.js</h4>
           <p class="collection__item_description">
-            Ещё один фреймворк для создания SPA с открытым кодом, который реализует шаблон MVC.
+            Ещё один фреймворк для создания SPA с открытым кодом, который
+            реализует шаблон MVC.
           </p>
         </li>
       </ul>
     </div>
-    
   </section>
 </template>
 
@@ -118,5 +129,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+.collection__card {
+    width: 90%;
+    margin: 15px auto;
+    border-radius: 10px;
+    text-align: center;
+
+    * {text-align: left; padding: 0;}
+}
+.collection_img {
+    height: 200px;
+}
+.collection__item {
+    list-style: none;
+}
 </style>
