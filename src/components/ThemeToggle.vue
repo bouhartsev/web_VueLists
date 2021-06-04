@@ -56,18 +56,23 @@ export default {
   &:before {
     content: "Light theme";
     position: absolute;
-    left: -100px;
+    left: -110px;
     top: 15px;
-    font-size: 18px;
+    font-size: 1em;
   }
 
   &:after {
     content: "Dark theme";
     position: absolute;
-    right: -100px;
+    right: -110px;
     top: 15px;
-    font-size: 18px;
+    font-size: 1em;
     color: #749ed7;
+  }
+  @media (max-width: 400px) {
+    &:before, &:after {
+      display: none;
+    }
   }
 }
 

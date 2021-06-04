@@ -8,14 +8,15 @@
       </a>
       <nav class="header__nav">
         <ul class="header__nav-ul">
-          <li><a href="#collections">Подборки</a></li>
-          <li><a href="#lists">Мои списки</a></li>
+          <li><a href="#collections"><img class="nav__img" src="@/assets/img/internet_16px.png" srcset="@/assets/img/internet_64px.png 1x, @/assets/img/internet_512px.png 2x" alt="Clipboard"> Подборки</a></li>
+          <li><a href="#lists"><img class="nav__img" src="@/assets/img/clipboard_16px.png" srcset="@/assets/img/clipboard_64px.png 1x, @/assets/img/clipboard_512px.png 2x" alt="Clipboard"> Cписки</a></li>
         </ul>
       </nav>
       <ThemeToggle />
     </header>
     <main class="main">
       <h1>ИЗУЧАЕМ ВЕБ-РАЗРАБОТКУ</h1>
+      
       <Collections />
       <Lists />
     </main>
@@ -40,6 +41,7 @@ export default {
 
 <style lang="scss">
 @import "~@/assets/variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -97,6 +99,12 @@ html {
           }
           text-transform: uppercase;
           font-size: 1.2em;
+          .nav__img {
+            display: inline-block;
+            vertical-align: bottom;
+            width: 32px;
+            height: auto;
+          }
         }
       }
     }
@@ -107,8 +115,20 @@ html {
       width: 100%;
       text-align: center;
       margin-top: 50px;
+      animation: scroll 20s infinite linear;
+      overflow: hidden;
+      will-change: transform;
     }
-  }
+    @keyframes scroll {
+    0% {
+        transform: translate(100%, 0);
+    }
+    100% {
+        transform: translate(-100%, 0)
+    }
+    }
+    overflow-x: hidden;
+}
 
   body {
     background: $bg-color;
@@ -170,7 +190,7 @@ html {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -183,5 +203,11 @@ h3 {
 
 section {
   padding-top: 150px;
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 14px;
+  }
 }
 </style>

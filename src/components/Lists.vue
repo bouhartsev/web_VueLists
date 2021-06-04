@@ -134,7 +134,7 @@ export default {
   flex-wrap: wrap;
 
   width: 100%;
-  height: 100px;
+  min-height: 100px;
 
   box-sizing: border-box;
   padding: 20px 0;
@@ -190,7 +190,7 @@ export default {
   margin: 10px;
 
   width: 40%;
-  min-width: 300px;
+  min-width: 220px;
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -202,7 +202,7 @@ export default {
   text-align: right;
 }
 .lists__draggable h5 {
-  font-size: 30px;
+  font-size: 1.2em;
   margin: 0;
 }
 .lists_img {
