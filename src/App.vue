@@ -125,6 +125,15 @@ html {
       background: $color_prime;
       // color: $
     }
+    .lists__droppable {
+      background: $color_three;
+      h4 {
+        color: $bg-color;
+      }
+    }
+    .lists__draggable {
+      background: $bg-color;
+    }
   }
 
   body.dark_theme {
@@ -132,8 +141,31 @@ html {
     $fg-color: whitesmoke;
     $color_prime: #1d3557;
     $color_second: #457b9d;
+    $color_three: #F1FAEE;
+    $color_four: #A8DADC;
 
     background: $bg-color;
+    color: $fg-color;
+
+    .header {
+      background: $color_second;
+      * {
+        fill: $fg-color;
+      }
+    }
+
+    .collection__card {
+      background: $color_prime;
+    }
+    .lists__droppable {
+      background: $color_three;
+      * {
+        color: $bg-color;
+      }
+    }
+    .lists__draggable {
+      background: $color_four;
+    }
   }
 }
 

@@ -21,7 +21,7 @@
       v-for="list in listNames"
       :key="list.id"
       @drop="onDrop($event, list.id)"
-      class="droppable"
+      class="lists__droppable"
       @dragover.prevent
       @dragenter.prevent
     >
@@ -29,18 +29,18 @@
       <div
         v-for="item in itemsData.filter((x) => x.listId === list.id)"
         @dragstart="onDragStart($event, item)"
-        class="draggable"
+        class="lists__draggable"
         draggable="true"
         :key="item.id"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          class="collection_img"
+          class="lists_img"
         >
-          <use xlink:href="#{{}}" />
+          <use :xlink:href="'#'+item.icon" />
         </svg>
         <h5>{{ item.title }}</h5>
+        <p>( {{item.priority}} )</p>
         <button class="check" @click="changePos(item.id, 1)" v-if="list.id!=1"></button>
         <!-- <button class="pencil"></button> -->
         <button class="cross" @click="deleteItem(item.id)"></button>
@@ -59,14 +59,14 @@ export default {
           id: 0,
           title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a turpis velit. Aliquam egestas nulla ante, quis fringilla metus pellentesque.",
           icon: "icon_css",
-          priority: 1,
+          priority: 2,
           listId: 0,
         },
         {
           id: 1,
           title: "Short text",
           icon: "icon_css",
-          priority: 1,
+          priority: 3,
           listId: 0,
         },
         {
@@ -103,7 +103,7 @@ export default {
     },
     onDrop: function (e, listId) {
       const itemId = parseInt(e.dataTransfer.getData("itemId"));
-      changePos(itemId, listId);
+      this.changePos(itemId, listId);
     },
 
     addItem: function () {
@@ -120,17 +120,13 @@ export default {
       });
     },
     deleteItem: function(itemId) {
-      this.itemsData = this.itemsData.map((x, index, array) => {
-        console.log(x, index, array)
-        if (x.id == itemId) array.splice(index, 1);
-        return x;
-      });
+      this.itemsData = this.itemsData.filter((x) => x.id != itemId)
     }
   },
 };
 </script>
 
-<style scoped>
+<style>
 .addTask {
   display: flex;
   justify-content: center;
@@ -153,20 +149,20 @@ export default {
   margin: 10px;
 }
 
-.draggable .check {
+.lists__draggable .check {
 	right: 80px;
 	background: url('~@/assets/img/check.svg') no-repeat, black;
 }
 
-.draggable .pencil {
+.lists__draggable .pencil {
 	background: url('~@/assets/img/pencil.svg') no-repeat, black;
 }
 
-.draggable .cross {
+.lists__draggable .cross {
 	background: url('~@/assets/img/x.svg') no-repeat, black;
 }
 
-.draggable button {
+.lists__draggable button {
 	height: 50px;
 	width: 50px;
 	border-radius: 100%;
@@ -182,16 +178,13 @@ export default {
   margin-right: 0;
 }
 
-.draggable button:hover {
+.lists__draggable button:hover {
 	cursor: pointer;
-	-webkit-transform: scale(1.05);
-	    -ms-transform: scale(1.05);
-	        transform: scale(1.05);
-	-webkit-box-shadow: 4px 4px 5px -5px var(--black);
-	        box-shadow: 4px 4px 5px -5px var(--black);
+  transform: scale(1.05);
+  box-shadow: 4px 4px 5px -5px var(--black);
 }
 
-.droppable {
+.lists__droppable {
   vertical-align: top;
   display: inline-block;
   margin: 10px;
@@ -200,20 +193,20 @@ export default {
   min-width: 300px;
   padding: 15px;
   border-radius: 5px;
-  background: #2c3e50;
   margin-bottom: 10px;
 }
-.droppable h4 {
-  color: white;
-}
-.draggable {
-  background: white;
+.lists__draggable {
   padding: 5px;
   border-radius: 5px;
   margin-bottom: 5px;
+  text-align: right;
 }
-.draggable h5 {
+.lists__draggable h5 {
   font-size: 30px;
   margin: 0;
+}
+.lists_img {
+  height: 100px;
+  width: 100px;
 }
 </style>
