@@ -1,6 +1,6 @@
 <template>
   <div class="toggleWrapper">
-    <input type="checkbox" class="dn" id="dn" />
+    <input type="checkbox" class="dn" id="dn"  @click="changeTheme()"/>
     <label for="dn" class="toggle">
       <span class="toggle__handler">
         <span class="crater crater--1"></span>
@@ -20,6 +20,13 @@
 <script>
 export default {
   name: "ThemeToggle",
+  methods: {
+    changeTheme: function() {
+      if (document.getElementById('dn').checked) document.body.classList.add('dark_theme');
+      else document.body.classList.remove('dark_theme');
+
+    }
+  }
 };
 </script>
 
@@ -28,6 +35,7 @@ export default {
   display: inline;
   position: relative;
   overflow: hidden;
+  width: 0;
   padding: 0 100px;
   transform: translate3d(-50%, -50%, 0);
 

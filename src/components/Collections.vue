@@ -1,6 +1,9 @@
 <template>
   <section id="collections">
     <div class="collection__card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <use xlink:href="#icon_css" />
+     </svg>
       <h3>CSS</h3>
       <ul>
         <li class="collection__item">
