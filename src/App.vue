@@ -1,17 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header>
+      <img alt="Vue logo" src="./assets/logo.png">
+      <!-- logo -->
+      <nav>
+        <ul>
+          <li><a href=""></a></li>
+        </ul>
+      </nav>
+      <ThemeToggle />
+      <List></List>
+    </header>
+    <main>
+      <h1></h1>
+      <section></section>
+    </main>
+    <footer>Бухарцев Матвей Александрович, 201-321, 04.06.2021</footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
+import List from '@/components/List.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ThemeToggle,
+    List,
   }
 }
 </script>
@@ -21,7 +37,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
