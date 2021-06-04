@@ -1,15 +1,21 @@
 <template>
   <div id="app">
     <header>
-      <img alt="Vue logo" src="./assets/logo.png">
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178 100">
+          <use xlink:href="#icon_logo" />
+        </svg>
+      </a>
       <!-- logo -->
       <nav>
         <ul>
-          <li><a href=""></a></li>
+          <li><a href="#collections">Подборки</a></li>
+          <li><a href="#lists">Мои списки</a></li>
         </ul>
       </nav>
       <ThemeToggle />
-      <List></List>
+      <Collections />
+      <Lists />
     </header>
     <main>
       <h1></h1>
@@ -20,25 +26,40 @@
 </template>
 
 <script>
-import ThemeToggle from '@/components/ThemeToggle.vue'
-import List from '@/components/List.vue'
+import ThemeToggle from "@/components/ThemeToggle.vue";
+import Collections from "@/components/Collections.vue";
+import Lists from "@/components/Lists.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     ThemeToggle,
-    List,
-  }
-}
+    Collections,
+    Lists,
+  },
+};
 </script>
 
 <style lang="scss">
+@import '~@/assets/variables.scss';
+
+html {
+  scroll-behavior: smooth;
+
+  body.dark_theme {
+    background: $bg-color;
+
+    .svg__bank_unvisible {
+      display: none;
+    }
+  }
+  
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section id="lists">
     <div
       v-for="category in categories"
       :key="category.id"
@@ -19,12 +19,12 @@
         <h5>{{ item.title }}</h5>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: 'List',
+  name: 'Lists',
   data: function () {
       return {
           itemsData: [
@@ -65,7 +65,6 @@ export default {
     },
     onDrop: function (e, categoryId) {
       const itemId = parseInt(e.dataTransfer.getData('itemId'));
-      console.log(itemId);
       this.itemsData = this.itemsData.map(x => {
         if (x.id == itemId)
           x.categoryId = categoryId;
