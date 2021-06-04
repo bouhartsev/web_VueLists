@@ -2,15 +2,17 @@
   <section id="lists">
     <h2>Списки</h2>
     <form action="">
-      <select name="" id="">
-        <option value="">CSS</option>
-        <option value="">JS Библиотеки</option>
-        <option value="">JS Фреймворки</option>
+      <input type="text" id="input_title">
+      <select name="select_icon" id="select_icon">
+        <option value="icon_css">CSS</option>
+        <option value="icon_js1">JS Библиотеки</option>
+        <option value="icon_js2">JS Фреймворки</option>
       </select>
-      <input type="text">
+      <input type="number" name="input_priority" id="input_priority">
+      <input type="reset" name="reset" id="btnAdd" value="Добавить" @click="addItem()">
     </form>
       <div
-      v-for="list in categories"
+      v-for="list in listNames"
       :key="list.id"
       @drop="onDrop($event, list.id)"
       class="droppable"
@@ -25,6 +27,9 @@
         draggable="true"
         :key="item.id"
       >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="collection_img">
+        <use xlink:href="#{{}}" />
+      </svg>
         <h5>{{ item.title }}</h5>
       </div>
     </div>
@@ -40,20 +45,26 @@ export default {
                 {
                     id: 0,
                     title: 'Audi',
+                    icon: "icon_css",
+                    priority: 1,
                     listId: 0
                 },
                 {
                     id: 1,
                     title: 'BMW',
+                    icon: "icon_css",
+                    priority: 1,
                     listId: 0
                 },
                 {
                     id: 2,
                     title: 'Cat',
+                    icon: "icon_css",
+                    priority: 1,
                     listId: 1
                 },
             ],
-            categories: [
+            listNames: [
                 {
                     id: 0,
                     title: 'ToDo'
@@ -79,6 +90,14 @@ export default {
           x.listId = listId;
         return x;
       })
+    },
+
+    addItem: function() {
+      let input_id = this.itemsData.lenght+1;
+      let input_title = document.getElementById("input_title").value;
+      let input_icon = document.getElementById("select_icon").value;
+      let input_priority = document.getElementById("input_priority").value;
+      this.itemsData.push({id: input_id, title: input_title, icon: input_icon, priority: input_priority, listId: 0});
     }
   }
 }
@@ -86,6 +105,9 @@ export default {
 
 <style scoped>
 .droppable {
+  display: inline-block;
+  width: 40%;
+  min-width: 300px;
   padding: 15px;
   border-radius: 5px;
   background: #2c3e50;
