@@ -33,16 +33,8 @@ export default {
 <style scoped lang="scss">
 .toggleWrapper {
   box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
   width: 300px;
-  height: 100%;
   padding-left: 100px;
-  transform: translate3d(-50%, -50%, 0);
-
-  display: flex;
-  align-items: center;
-  align-self: bottom;
 
   input {
     position: absolute;
@@ -60,7 +52,7 @@ export default {
   background-color: #83d8ff;
   border-radius: 90px - 6;
   transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-
+  -webkit-tap-highlight-color: transparent;
   &:before {
     content: "Light theme";
     position: absolute;

@@ -14,12 +14,12 @@
       </nav>
       <ThemeToggle />
     </header>
-    <main>
-      <h1></h1>
+    <main class="main">
+      <h1>ИЗУЧАЕМ ВЕБ-РАЗРАБОТКУ</h1>
       <Collections />
       <Lists />
     </main>
-    <footer>Бухарцев Матвей Александрович, 201-321, 04.06.2021</footer>
+    <footer class="footer">Бухарцев Матвей Александрович, 201-321, 04.06.2021</footer>
   </div>
 </template>
 
@@ -45,19 +45,26 @@ html {
   scroll-behavior: smooth;
 
   body {
-    transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     .svg__bank_unvisible {
       display: none;
     }
 
     .header {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      z-index: 10;
+
       width: 100%;
-      height: 100px;
+      min-height: 100px;
 
       display: flex;
-      position: relative;
       justify-content: space-around;
       align-items: center;
+      align-content: center;
+      flex-wrap: wrap;
+
+      padding: 10px 0;
 
       * {
         max-height: 100%;
@@ -65,7 +72,7 @@ html {
 
       .header_logo {
         width: fit-content;
-        height: 100%;
+        height: 100px;
         * {
           height: 100%;
           width: auto;
@@ -73,7 +80,8 @@ html {
         }
       }
       .header__nav {
-        width: 50%;
+        min-width: 50%;
+        width: 300px;
         .header__nav-ul {
           box-sizing: border-box;
           padding: 0 1em;
@@ -85,14 +93,38 @@ html {
             text-decoration: none;
             display: block;
             width: fit-content;
+            color: inherit;
           }
+          text-transform: uppercase;
+          font-size: 1.2em;
         }
       }
+    }
+    .main {
+      margin-top: 300px;
+    }
+    .footer {
+      width: 100%;
+      text-align: center;
+      margin-top: 50px;
     }
   }
 
   body {
     background: $bg-color;
+    color: $fg-color;
+
+    .header {
+      background: $color_second;
+      * {
+        fill: $fg-color;
+      }
+    }
+
+    .collection__card {
+      background: $color_prime;
+      // color: $
+    }
   }
 
   body.dark_theme {
@@ -104,15 +136,20 @@ html {
     background: $bg-color;
   }
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // text-align: center;
-  color: #2c3e50;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center !important;
+}
+
+section {
+  padding-top: 150px;
 }
 </style>

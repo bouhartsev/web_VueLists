@@ -56,8 +56,8 @@
       </ul>
     </div>
     <div class="collection__card">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="collection_img">
-        <use xlink:href="#icon_js1" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1052 1052" class="collection_img">
+        <use xlink:href="#icon_js" />
       </svg>
       <h3>JS Библиотеки</h3>
       <ul>
@@ -133,13 +133,14 @@ export default {
 .collection__card {
     width: 90%;
     margin: 15px auto;
+    padding: 15px;
     border-radius: 10px;
     text-align: center;
 
     * {text-align: left; padding: 0;}
 }
 .collection_img {
-    height: 200px;
+    height: 100px;
 }
 .collection__item {
     list-style: none;
