@@ -1,14 +1,14 @@
 <template>
   <section id="lists" style="text-align: center;">
     <h2>Списки</h2>
-    <form action="" class="addTask">
-      <input type="text" id="input_title" placeholder="Название"/>
-      <select name="select_icon" id="select_icon">
+    <form action="" class="addTask" aria-label="Форма - добавление задачи">
+      <input type="text" id="input_title" placeholder="Название" aria-label="Поле формы - название"/>
+      <select name="select_icon" id="select_icon" aria-label="Поле формы - выбор подборки">
         <option value="icon_css">CSS</option>
         <option value="icon_js">JS Библиотеки</option>
         <option value="icon_js2">JS Фреймворки</option>
       </select>
-      <input type="number" name="input_priority" id="input_priority"  placeholder="Приоритет"/>
+      <input type="number" name="input_priority" id="input_priority"  placeholder="Приоритет" aria-label="Поле формы - приоритет"/>
       <input
         type="reset"
         name="reset"
@@ -41,9 +41,8 @@
         </svg>
         <h5>{{ item.title }}</h5>
         <p>( {{item.priority}} )</p>
-        <button class="check" @click="changePos(item.id, 1)" v-if="list.id!=1"></button>
-        <!-- <button class="pencil"></button> -->
-        <button class="cross" @click="deleteItem(item.id)"></button>
+        <button class="check" @click="changePos(item.id, 1)" v-if="list.id!=1" aria-label="Check button"></button>
+        <button class="cross" @click="deleteItem(item.id)" aria-label="Delete button"></button>
       </div>
     </div>
   </section>
@@ -107,7 +106,7 @@ export default {
     },
 
     addItem: function () {
-      let input_id = this.itemsData.lenght + 1;
+      let input_id = this.itemsData.length + 1;
       let input_title = document.getElementById("input_title").value;
       let input_icon = document.getElementById("select_icon").value;
       let input_priority = document.getElementById("input_priority").value;
@@ -118,9 +117,10 @@ export default {
         priority: input_priority,
         listId: 0,
       });
+      // console.log(input_id);
     },
     deleteItem: function(itemId) {
-      this.itemsData = this.itemsData.filter((x) => x.id != itemId)
+      this.itemsData = this.itemsData.filter((x) => x.id !== itemId)
     }
   },
 };

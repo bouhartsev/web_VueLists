@@ -1,6 +1,6 @@
 <template>
   <div class="toggleWrapper">
-    <input type="checkbox" class="dn" id="dn"  @click="changeTheme()"/>
+    <input type="checkbox" class="dn" id="dn"  @click="changeTheme()" aria-label="Смена темы"/>
     <label for="dn" class="toggle">
       <span class="toggle__handler">
         <span class="crater crater--1"></span>
