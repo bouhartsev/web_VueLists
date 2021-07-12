@@ -8,8 +8,8 @@
       </a>
       <nav class="header__nav">
         <ul class="header__nav-ul">
-          <li><a href="#collections"><img class="nav__img" src="@/assets/img/internet_16px.png" srcset="@/assets/img/internet_64px.png 1x, @/assets/img/internet_512px.png 2x" alt="Clipboard"> Подборки</a></li>
-          <li><a href="#lists"><img class="nav__img" src="@/assets/img/clipboard_16px.png" srcset="@/assets/img/clipboard_64px.png 1x, @/assets/img/clipboard_512px.png 2x" alt="Clipboard"> Cписки</a></li>
+          <li><a href="#collections"><img class="nav__img" src="@/assets/img/internet_512px.png" alt="картинка"> Подборки</a></li>
+          <li><a href="#lists"><img class="nav__img" src="@/assets/img/clipboard_512px.png" alt="картинка"> Cписки</a></li>
         </ul>
       </nav>
       <ThemeToggle />
@@ -57,7 +57,7 @@ html {
       left: 0px;
       z-index: 10;
 
-      width: 100%;
+      width: 100vw;
       min-height: 100px;
 
       display: flex;
@@ -189,10 +189,16 @@ html {
   }
 }
 
+body {
+  margin: 0;
+}
+
 #app {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  overflow: hidden;
 }
 
 h1,
