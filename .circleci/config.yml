@@ -39,7 +39,7 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Build
+          name: Building
           command: |
             npm run build
       - save_cache:
