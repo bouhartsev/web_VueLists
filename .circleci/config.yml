@@ -50,7 +50,7 @@ jobs:
           name: Deploy Master Branch
           command: |
             cd dist
-            sudo apt-get -qq install git-ft
+            sudo apt-get -qq install git-ftp
             echo " "
             echo "Deploying project..."
             echo $(git status)
