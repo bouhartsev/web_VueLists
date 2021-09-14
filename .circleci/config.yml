@@ -49,9 +49,8 @@ jobs:
       - run: 
           name: Deploy Master Branch
           command: |
-            cd dist
             sudo apt-get -qq install git-ftp
             echo " "
             echo "Deploying project..."
             echo $(git status)
-            git ftp push --auto-init --force --all --user "${FTP_USER}" --passwd "${FTP_PWD}" "${FTP_ROOT}/htdocs/client/course1/exam2/"
+            git ftp push --auto-init --force --syncroot "dist" --user "${FTP_USER}" --passwd "${FTP_PWD}" "${FTP_ROOT}/htdocs/client/course1/exam2/"
