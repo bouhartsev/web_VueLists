@@ -41,7 +41,7 @@ jobs:
       - run:
           name: Build
           command: |
-          npm run build
+            npm run build
       - save_cache:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
