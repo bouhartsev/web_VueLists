@@ -54,4 +54,4 @@ jobs:
             echo "Deploying project..."
             echo $(git status)
             git config git-ftp.syncroot dist
-            git ftp push --auto-init --force --syncroot --user "${FTP_USER}" --passwd "${FTP_PWD}" "${FTP_ROOT}/htdocs/client/course1/exam2/"
+            git ftp push --auto-init --force --user "${FTP_USER}" --passwd "${FTP_PWD}" --syncroot "${FTP_ROOT}/htdocs/client/course1/exam2/"
