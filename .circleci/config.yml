@@ -17,7 +17,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/node:12.15.0-stretch-browsers
+      - image: cimg/node:14.17.6-browsers
  
     working_directory: ~/repo
  
@@ -53,4 +53,5 @@ jobs:
             echo " "
             echo "Deploying project..."
             echo $(git status)
-            git ftp push --auto-init --force --all --user "${FTP_USER}" --passwd "${FTP_PWD}" "${FTP_ROOT}/htdocs/client/course1/exam2/"
+            git config git-ftp.syncroot dist
+            git ftp push --auto-init --force --user "${FTP_USER}" --passwd "${FTP_PWD}" "${FTP_ROOT}/htdocs/client/course1/exam2/"
